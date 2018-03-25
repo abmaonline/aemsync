@@ -86,14 +86,14 @@ class Pusher {
     log.group()
     this.lock = this.targets.length
     pack.save((packagePath) => {
-      this.onSave(packagePath, () => {
+      this.onSave(packagePath, items, () => {
         log.groupEnd()
         this.lock -= 1
       })
     })
   }
 
-  onSave (packagePath, callback) {
+  onSave (packagePath, items, callback) {
     this.sender.send(packagePath, (err, host, delta, time) => {
       let prefix = `Deploying to [${chalk.yellow(host)}] in ${delta} ms at ${time}`
 
@@ -103,7 +103,7 @@ class Pusher {
         log.info(`${prefix}: ${chalk.green('OK')}`)
       }
 
-      this.onPushEnd(err, host)
+      this.onPushEnd(err, host, items)
       callback()
     })
   }
