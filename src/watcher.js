@@ -6,19 +6,25 @@ const chalk = require('chalk')
 const watcher = require('simple-watcher')
 
 class Watcher {
-  watch (workingDir, exclude, callback) {
-    log.info(`Scanning: ${chalk.yellow(workingDir)} ...`)
+  watch (workingDirs, exclude, callback) {
+    // Convert to array
+    if (typeof workingDirs === 'string') {
+      workingDirs = [workingDirs];
+    }
+    log.info(`Scanning: ${chalk.yellow(workingDirs)} ...`)
 
-    watcher(workingDir, (localPath) => {
-      log.debug('Changed:', localPath)
-
-      // Skip excluded.
-      if (exclude && anymatch(exclude, localPath)) {
-        return
-      }
-
-      callback(localPath)
-    }, 0)
+    workingDirs.forEach((dir) => {
+      watcher(dir, (localPath) => {
+        log.debug('Changed:', localPath)
+  
+        // Skip excluded.
+        if (exclude && anymatch(exclude, localPath)) {
+          return
+        }
+  
+        callback(localPath)
+      }, 0)        
+    });
 
     log.info('Awaiting changes ...')
   }
