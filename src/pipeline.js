@@ -93,7 +93,7 @@ class Pipeline {
         this.sender.send(packagePath, (err, host, delta, time) => {
           let prefix = `Deploying to [${chalk.yellow(host)}] in ${delta} ms at ${time}`
           err ? log.info(`${prefix}: ${chalk.red(err)}`) : log.info(`${prefix}: ${chalk.green('OK')}`)
-          this.onPushEnd(err, host)
+          this.onPushEnd(err, host, list, pack.items)
           finalize()
         })
       })
