@@ -84,7 +84,7 @@ function main () {
           Exclude: ${chalk.yellow(exclude)}
   `)
 
-  aemsync({workingDir, targets, interval, exclude, packmgrPath})
+  aemsync({workingDirs: workingDir, targets, interval, exclude, packmgrPath})
 }
 
 if (require.main === module) {
