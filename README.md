@@ -1,7 +1,9 @@
-aemsync
+@abmaonline/aemsync
 =======
 
 AEM (Adobe CQ) Synchronization Tool.
+
+Based on [https://github.com/gavoja/aemsync](aemsync) by [https://github.com/gavoja](gavoja). This fork adds feedback about what files were pushed to AEM.
 
 ### Synopsis
 
@@ -16,7 +18,7 @@ The tool pushes code changes to AEM instance(s) upon a file change.
 With [npm](http://npmjs.org) do:
 
 ```
-npm install aemsync -g
+npm install @abmaonline/aemsync -g
 ```
 
 ### Usage
@@ -45,7 +47,7 @@ aemsync -t http://admin:admin@localhost:4502,http://admin:admin@localhost:4503 -
 JavaScript (full watch example):
 ```JavaScript
 // Import aemsync.
-const aemsync = require('aemsync')
+const aemsync = require('@abmaonline/aemsync')
 
 // Set up the environment.
 const workingDir = '~/workspace/my_project'
@@ -70,7 +72,7 @@ aemsync({workingDir, targets, exclude, interval, packmgrUrl, onPushEnd})
 JavaScript (direct push example):
 ```JavaScript
 // Import aemsync.
-const aemsync = require('aemsync')
+const aemsync = require('@abmaonline/aemsync')
 
 // Set up the environment.
 const path = '~/foo/bar/my-workspace/jcr_content/apps/my-app/components/my-component'

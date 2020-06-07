@@ -1,23 +1,31 @@
 {
-  "name": "aemsync",
+  "name": "@abmaonline/aemsync",
   "version": "3.0.2",
   "description": "Adobe AEM Synchronization Tool",
   "author": "Michal Kochel <gavoja@gmail.com>",
+  "contributors": [
+    "Matthijs Abma"
+  ],
   "keywords": [
     "AEM",
     "CQ",
     "Sling",
     "Synchronization"
   ],
-  "homepage": "https://github.com/gavoja/aemsync",
+  "homepage": "https://github.com/abmaonline/aemsync",
   "bugs": {
-    "url": "https://github.com/gavoja/aemsync/issues"
+    "url": "https://github.com/abmaonline/aemsync/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gavoja/aemsync.git"
+    "url": "https://github.com/abmaonline/aemsync.git"
   },
   "main": "index.js",
+  "files": [
+    "bin",
+    "data",
+    "src"
+  ],
   "dependencies": {
     "archiver": "^3.1.1",
     "chalk": "^1.1.3",
@@ -26,6 +34,9 @@
     "minimatch": "^3.0.4",
     "minimist": "^1.2.5",
     "simple-watcher": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=6"
   },
   "bin": {
     "aemsync": "./bin/aemsync"
